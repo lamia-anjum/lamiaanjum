@@ -1,0 +1,317 @@
+<!doctype html><html><head>
+<meta charset=utf8>
+<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Lamia Anjum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700;800&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<style>
+  /* layout: plain personal-portfolio scroll — sticky simple nav, text-led hero,
+     a three-card work grid, short about block, warm footer with contact */
+  :root{
+    --bg:#ffffff;
+    --surface:#ffffff;
+    --ink:#2d2a2a;
+    --muted:#66605d;
+    --line:#ece5e2;
+    --accent:#b79aa0;
+    --accent-soft:#f5ece9;
+    --accent-ink:#2d2a2a;
+    --beige:#ffffff;
+    --mauve:#d9c5c8;
+    --wedgewood:#8ca3aa;
+    --font-display:'Hanken Grotesk',"Helvetica Neue",Arial,sans-serif;
+    --font-body:'Figtree',"Helvetica Neue",Arial,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#171515; --surface:#221f1f; --ink:#f3eee9; --muted:#ceb9ba; --line:#493f3f;
+      --accent:#d1adb3; --accent-soft:#6d5056; --accent-ink:#171515;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#171515; --surface:#221f1f; --ink:#f3eee9; --muted:#ceb9ba; --line:#493f3f;
+    --accent:#d1adb3; --accent-soft:#6d5056; --accent-ink:#171515;
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg);color:var(--ink);font-family:var(--font-body);
+    padding-left:max(16px, env(safe-area-inset-left,0px));
+    padding-right:max(16px, env(safe-area-inset-right,0px));
+  }
+  ::selection{background:var(--accent);color:var(--accent-ink)}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0}
+  p{margin:0}
+
+  .wrap{max-width:860px;margin:0 auto}
+
+  /* ---- nav ---- */
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-block:20px;position:sticky;top:env(safe-area-inset-top,0px);
+    background:var(--bg);z-index:5;flex-wrap:wrap;gap:10px;
+  }
+  .nav .mark{font-family:var(--font-display);font-weight:700;font-size:1rem;letter-spacing:-.01em}
+  .nav ul{list-style:none;display:flex;gap:26px;margin:0 0 0 auto;padding:0}
+  .nav a{
+    font-family:var(--font-mono);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;
+    text-decoration:none;color:var(--muted);border-bottom:1px solid transparent;padding-bottom:2px;
+  }
+  .nav a:hover,.nav a:focus-visible{color:var(--ink);border-color:var(--accent)}
+
+  /* ---- hero ---- */
+  .hero{padding-block:60px 48px}
+  .hero-grid{display:grid;grid-template-columns:minmax(150px,1fr) 2.2fr;gap:36px;align-items:start}
+  .hero-logo{min-height:280px;display:flex;flex-direction:column;justify-content:center}
+  .hero-logo .wordmark{
+    font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;line-height:1.02;
+    font-size:clamp(1.6rem,3.1vw,2.3rem);
+  }
+  .hero-logo .wordmark span{display:block}
+  .hero-logo .role{
+    font-family:var(--font-mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--muted);margin-top:14px;max-width:14ch;line-height:1.5;
+  }
+  .hero-main{min-width:0}
+  .hero .hi{font-family:var(--font-body);font-size:1.05rem;color:var(--muted);margin-bottom:10px}
+  .hero h1{
+    font-size:clamp(2.1rem,5.4vw,3.4rem);font-weight:800;line-height:1.08;letter-spacing:-.015em;
+    max-width:17ch;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--accent);
+  }
+  .hero .lede{
+    font-size:1.08rem;line-height:1.65;color:var(--muted);max-width:56ch;margin-top:20px;
+  }
+  .hero .lede b{color:var(--ink);font-weight:600}
+
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .btn{
+    font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em;
+    padding:12px 20px;text-decoration:none;display:inline-block;border-radius:3px;
+  }
+  .btn.primary{background:var(--accent);color:var(--accent-ink);font-weight:500}
+  .btn.primary:hover{filter:brightness(1.07)}
+  .btn.ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  .creds{
+    margin-top:28px;font-family:var(--font-mono);font-size:.74rem;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:0;
+  }
+  .creds span{display:inline-flex;align-items:center}
+  .creds span:not(:last-child)::after{content:"·";margin-inline:10px;color:var(--line)}
+
+  /* ---- sections ---- */
+  section{padding-block:46px;border-top:1px solid var(--line)}
+  .sec-label{
+    font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:14px;
+  }
+  section h2{font-size:1.5rem;font-weight:700;margin-bottom:22px;max-width:100%;white-space:nowrap}
+
+  /* ---- work grid ---- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;display:flex;flex-direction:column;min-width:0;
+  }
+  .card .thumb{
+    aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;color:var(--muted);
+    background:
+      repeating-linear-gradient(135deg, transparent 0 10px, var(--line) 10px 11px);
+  }
+  .card .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card .tag{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+  .card h3{font-size:1.02rem;font-weight:700;line-height:1.25}
+  .card p{font-size:.86rem;color:var(--muted);line-height:1.5;flex:1}
+  .card .link{
+    font-family:var(--font-mono);font-size:.72rem;margin-top:4px;color:var(--ink);
+    text-decoration:none;display:inline-flex;align-items:center;gap:5px;
+  }
+  .card.pending .link{color:var(--muted)}
+  .card .link .arrow{transition:transform .15s ease}
+  .card .link:hover .arrow{transform:translateX(3px)}
+
+  .note{
+    font-family:var(--font-mono);font-size:.76rem;color:var(--muted);margin-top:20px;line-height:1.6;
+  }
+
+  /* ---- about ---- */
+  .about p{font-size:1.02rem;line-height:1.7;color:var(--muted);max-width:60ch;margin-bottom:14px}
+  .about p:last-child{margin-bottom:0}
+  .about b{color:var(--ink);font-weight:600}
+  .quote{
+    font-family:var(--font-display);font-size:1.2rem;font-weight:600;line-height:1.4;
+    max-width:40ch;margin-top:22px;color:var(--ink);
+  }
+  .quote span{color:var(--accent)}
+
+  /* ---- contact / footer ---- */
+  footer{padding-block:40px;border-top:1px solid var(--line)}
+  footer .line1{font-family:var(--font-display);font-weight:700;font-size:1.3rem;margin-bottom:22px;max-width:22ch}
+  .contact-grid{display:flex;gap:40px;flex-wrap:wrap;align-items:flex-end;justify-content:space-between}
+  .contact-item .k{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+  .copy-row{display:flex;align-items:center;gap:10px}
+  .copy-row .val{font-family:var(--font-mono);font-size:.95rem}
+  .copy-btn{
+    font-family:var(--font-mono);font-size:.66rem;color:var(--muted);background:none;
+    border:1px solid var(--line);padding:4px 9px;cursor:pointer;border-radius:3px;
+  }
+  .copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .foot-meta{font-family:var(--font-mono);font-size:.68rem;color:var(--muted)}
+  .copy-btn:focus-visible,a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  @media (max-width:720px){
+    .grid{grid-template-columns:1fr}
+    .hero-grid{grid-template-columns:1fr;gap:22px}
+    .hero-logo{min-height:0}
+  }
+  @media (max-width:520px){
+    .nav ul{gap:16px}
+    .contact-grid{align-items:flex-start}
+  }
+
+  @media (prefers-reduced-motion:no-preference){
+    .hero{animation:rise .5s ease-out both}
+    @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="nav">
+    <span class="mark">Lamia Anjum</span>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="hero">
+    <div class="hero-grid">
+      <div class="hero-logo">
+        <div class="wordmark"><span>Lamia</span><span>Anjum</span></div>
+        <div class="role">Human Factors Specialist | UX Researcher</div>
+      </div>
+      <div class="hero-main">
+        <h1>Human-centred design for <em>safer, easier experiences.</em></h1>
+        <p class="lede">I’m a Human Factors Specialist with a background in industrial engineering, nuclear, and rail/transit. I bring a systems mindset to user research and digital product design, with a focus on making complex experiences clearer, safer, and more usable for the people who rely on them.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#work">See my work</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+        <div class="creds">
+          <span>CHFP certified</span>
+          <span>EIT, PEO</span>
+          <span>B.A.Sc Industrial Engineering, U of T '21</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="sec-label">Work</div>
+    <h2>Selected case studies</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="thumb">IN PROGRESS</div>
+        <div class="body">
+          <span class="tag">UX research · AI evaluation</span>
+          <h3>API usability, with AI in the loop</h3>
+          <p>A public API tested the way a new developer actually uses it, then re‑tested with AI assistance to see where it helps and where it quietly misleads.</p>
+          <a class="link" href="#contact">Case study — in progress <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="card pending">
+        <div class="thumb">COMING SOON</div>
+        <div class="body">
+          <span class="tag">Case study</span>
+          <h3>Reserved for a second project</h3>
+          <p>Being prepared for this page — check back soon, or ask me directly.</p>
+          <a class="link" href="#contact">Coming soon <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="card pending">
+        <div class="thumb">COMING SOON</div>
+        <div class="body">
+          <span class="tag">Case study</span>
+          <h3>Reserved for a third project</h3>
+          <p>Being prepared for this page — check back soon, or ask me directly.</p>
+          <a class="link" href="#contact">Coming soon <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+    <p class="note">Full write‑ups are still going up — get in touch for work samples in the meantime.</p>
+  </section>
+
+  <section id="about">
+    <div class="sec-label">About</div>
+    <h2>Human factors specialist with a systems mindset</h2>
+    <div class="about">
+      <p>I’m a Human Factors Specialist with a degree in Industrial Engineering, and my work has always focused ensuring safety and accessibility is a paramount concern. I spent two years in nuclear and four years in rail and transit, where I worked to improve how systems support people rather than create friction, confusion, or risk.</p>
+      <p>My focus has always been on making sure the system is safe and usable for the people who rely on it, not the other way around. I’m interested in the intersection of human performance, system design, and operational risk, helping organizations create work environments that are easier to understand, safer to use, and more effective in practice.</p>
+    </div>
+    <p class="quote">I care about systems that help people work <span>confidently</span>, not just efficiently.</p>
+  </section>
+
+  <footer id="contact">
+    <p class="line1">Always happy to talk research, AI products, or rail.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="k">Email</div>
+        <div class="copy-row">
+          <span class="val" id="email-val">lamia.anjum@alumni.utoronto.ca</span>
+          <button class="copy-btn" id="copy-email" type="button">Copy</button>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="k">Based in</div>
+        <div class="val">Toronto, Ontario</div>
+      </div>
+      <div class="foot-meta">Landing page — draft</div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('copy-email');
+  var val = document.getElementById('email-val');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var text = val.textContent.trim();
+    function fallback(){
+      try{
+        var range = document.createRange();
+        range.selectNodeContents(val);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }catch(e){}
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){
+        btn.textContent = 'Copied';
+        setTimeout(function(){ btn.textContent = 'Copy'; }, 1500);
+      }).catch(fallback);
+    } else {
+      fallback();
+    }
+  });
+})();
+</script>
+
+</body></html>
